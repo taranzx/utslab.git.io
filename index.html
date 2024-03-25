@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Money Tracker</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Login Page -->
+    <div id="loginPage" class="container-login">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+<!-- Main Page -->
+<div id="mainPage" style="display: none;">
+    <nav class="navbar">
+        <a class="navbar-brand" href="#">Hello, <span id="userNameDisplay"></span>!</a>
+        <div class="navbar-buttons">
+            <button class="navbar-button" onclick="showPage('mainPage')">Main</button>
+            <button class="navbar-button" onclick="showPage('incomeOutcomePage')">Income/Outcome</button>
+            <button class="navbar-button" onclick="showPage('aboutUsPage')">About Us</button>
+            <button class="navbar-button" onclick="logout()">Log Out</button>
+        </div>
+    </nav>
+    
+
+    <!-- Balance and Transaction History -->
+    <div class="container" style="display: flex; flex-wrap: wrap;">
+        <div class="balance-box" style="width: 50%;">
+            <h2 class="balance-title">Current Balance:</h2>
+            <h3 id="currentBalance"></h3>
+            <button id="resetButton" class="btn btn-danger">Reset History and Balance</button>
+        </div>
+        <div class="transaction-history-box" style="width: 50%;">
+            <h2 class="balance-title">Transaction History:</h2>
+            <div class="transaction-table" id="transactionTable">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Transaction Name</th>
+                            <th scope="col">Transaction Amount</th>
+                            <th scope="col">Transaction Category</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Transactions will be dynamically added here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <!-- Income/Outcome Page -->
+    <div id="incomeOutcomePage" style="display: none;">
+        <nav class="navbar">
+            <a class="navbar-brand" href="#">Hello, <span id="userNameDisplay"></span>!</a>
+            <div class="navbar-buttons">
+                <button class="navbar-button" onclick="showPage('mainPage')">Main</button>
+                <button class="navbar-button" onclick="showPage('incomeOutcomePage')">Income/Outcome</button>
+                <button class="navbar-button" onclick="showPage('aboutUsPage')">About Us</button>
+                <button class="navbar-button" onclick="logout()">Log Out</button>
+            </div>
+        </nav>
+        <div class="container">
+            <h2>Income/Outcome <span id="userNameDisplay"></span></h2>
+            <form id="transactionForm">
+                <div class="form-group">
+                    <label for="transactionName">Transaction Name:</label>
+                    <input type="text" class="form-control" id="transactionName" required>
+                </div>
+                <div class="form-group">
+                    <label for="transactionAmount">Transaction Amount:</label>
+                    <input type="number" class="form-control" id="transactionAmount" required>
+                </div>
+                <div class="form-group">
+                    <label for="transactionCategory">Transaction Category:</label>
+                    <select class="form-control" id="transactionCategory">
+                        <option>Makan</option>
+                        <option>Main</option>
+                        <option>Edukasi</option>
+                        <option>Belanja</option>
+                        <option>Lainnya</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="transactionType">Transaction Type:</label>
+                    <select class="form-control" id="transactionType">
+                        <option value="income">Income</option>
+                        <option value="outcome">Outcome</option>
+                    </select>
+                </div>
+                <!-- Tombol Submit dan Back -->
+                <div class="button-group">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button onclick="showPage('mainPage')" class="btn btn-secondary">Back</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+
+    <!-- About Us Page -->
+    <div id="aboutUsPage" style="display: none;">
+        <nav class="navbar">
+            <a class="navbar-brand" href="#">Hello, <span id="userNameDisplay"></span>!</a>
+            <div class="navbar-buttons">
+                <button class="navbar-button" onclick="showPage('mainPage')">Main</button>
+                <button class="navbar-button" onclick="showPage('incomeOutcomePage')">Income/Outcome</button>
+                <button class="navbar-button" onclick="showPage('aboutUsPage')">About Us</button>
+                <button class="navbar-button" onclick="logout()">Log Out</button>
+            </div>
+        </nav>
+        <div class="container">
+            <h2>About Us</h2>
+            <p>Aplikasi Money Tracker adalah aplikasi yang digunakan untuk menghitung pemasukan dan pengeluaran serta untuk menghitung jumlah balance di rekening kita.</p>
+            <h3>Welcome, <span id="userNameDisplay"></span>!</h3>
+        <h3>Tim kami: </h3>
+        <div class="team-container">
+            <div class="member">
+                <img src="bram.jpg" alt="Ketua Kelompok">
+                <h4>Abraham Jiverson Dobiki</h4>
+                <p>00000108414</p>
+            </div>
+            <div class="member">
+                <img src="mahatma.jpg" alt="Anggota Kelompok">
+                <h4>Mahatma Aryotama</h4>
+                <p>00000108436</p>
+            </div>
+            <div class="member">
+                <img src="geoffrey.jpg" alt="Anggota Kelompok">
+                <h4>Geoffrey Raditya Kawinda</h4>
+                <p>00000107663</p>
+            </div>
+            <div class="member">
+                <img src="aldy.jpg" alt="Anggota Kelompok">
+                <h4>Muhammad Raffaldy</h4>
+                <p>00000106377</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include jQuery and Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                // Login form submission
+                $('#loginForm').on('submit', function (e) {
+                    e.preventDefault();
+                    var name = $('#name').val();
+                    localStorage.setItem('name', name);
+                    showPage('mainPage');
+                    updateUsername(name);
+                });
+    
+                // Logout button click
+                $('#logoutButton').on('click', function () {
+                    localStorage.removeItem('name');
+                    showPage('loginPage');
+                });
+    
+                // Transaction form submission
+                $('#transactionForm').on('submit', function (e) {
+                    e.preventDefault();
+                    if ($('#transactionName').val() && $('#transactionAmount').val()) {
+                        alert('Transaction Success!');
+    
+                        // Save transaction to local storage
+                        var transactions = JSON.parse(localStorage.getItem('transactions')) || [];
+                        var transaction = {
+                            name: $('#transactionName').val(),
+                            amount: $('#transactionAmount').val(),
+                            category: $('#transactionCategory').val(),
+                            type: $('#transactionType').val()
+                        };
+                        transactions.push(transaction);
+                        localStorage.setItem('transactions', JSON.stringify(transactions));
+    
+                        // Update the transaction table and current balance
+                        updateTransactions();
+    
+                        // Go back to main page
+                        showPage('mainPage');
+                    } else {
+                        alert('Transaction not completed, please complete the form!');
+                    }
+                });
+    
+                // Reset button click
+                $('#resetButton').on('click', function () {
+                    clearLocalStorage(); // Call the function to clear local storage
+                });
+    
+                function clearLocalStorage() {
+                localStorage.clear();
+                updateTransactions(); // Update transactions to reflect cleared data
+    }
+    
+                // Show user name and transactions on main page
+                updateUsername();
+                updateTransactions();
+            });
+    
+            // Function to update the username in the navbar
+            function updateUsername(name) {
+                $('.navbar-brand span#userNameDisplay').text(name);
+            }
+    
+            // Function to update the transaction table and current balance
+            function updateTransactions() {
+                var transactions = JSON.parse(localStorage.getItem('transactions')) || [];
+                var currentBalance = 0;
+                $('#transactionTable tbody').empty();
+                transactions.forEach(function (transaction) {
+                    var color = transaction.type === 'income' ? 'lightgreen' : 'lightcoral';
+                    $('#transactionTable tbody').append('<tr style="background-color: ' + color + ';"><td>' + transaction.name + '</td><td>' + transaction.amount + '</td><td>' + transaction.category + '</td></tr>');
+                    currentBalance += transaction.type === 'income' ? parseInt(transaction.amount) : -parseInt(transaction.amount);
+                });
+                $('#currentBalance').text(currentBalance);
+            }
+    
+            // Function to show a page and hide others
+            function showPage(pageId) {
+                // Hide all pages
+                $('#loginPage, #mainPage, #incomeOutcomePage, #aboutUsPage').hide();
+                // Show the requested page
+                $('#' + pageId).show();
+                // Update the username
+                if (pageId !== 'loginPage') {
+                    var name = localStorage.getItem('name');
+                    updateUsername(name);
+                }
+            }
+            function logout() {
+                localStorage.removeItem('name');
+                showPage('loginPage');
+            }
+        </script>
+    </body>
+    </html>
+    

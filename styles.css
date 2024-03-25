@@ -1,0 +1,367 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+.container-login {
+    max-width: 300px;
+    margin: 50px auto; /* Atur margin di sisi atas dan bawah, dan auto di sisi kiri dan kanan */
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Mengatur teks ke tengah */
+}
+
+
+.container {
+    max-width: 1200px; /* Atur lebar maksimum container */
+    margin: 0px; /* Atur margin secara otomatis di atas dan bawah, dan auto di sisi kiri dan kanan */
+    padding: 25px;
+    background-color: white;
+}
+
+#incomeOutcomePage,
+#aboutUsPage {
+    max-width: 1200px;
+    background-color: white;
+}
+
+h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+
+.balance-box,
+.transaction-history-box {
+    flex: 1; /* Agar kedua kotak bisa mengambil ruang yang sama */
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    margin-right: 20px; /* Tambahkan margin kanan agar ada ruang di antara kedua kotak */
+}
+
+.balance-box {
+    flex: 1;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    margin-right: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.transaction-history-box {
+    flex: 1;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.balance-title {
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.transaction-table {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.transaction-table th,
+.transaction-table td {
+    padding: 10px;
+    border: 1px solid #ced4da;
+    text-align: center;
+}
+
+.transaction-table th {
+    background-color: #007bff;
+    color: black;
+}
+
+
+.navbar {
+    display: flex; /* Menggunakan flexbox */
+    justify-content: space-between; /* Menempatkan elemen ke ujung kanan dan kiri */
+    align-items: center; /* Mengatur vertikal ke tengah */
+    background-color: #333;
+    padding: 15px 50px; /* Meningkatkan padding atas dan bawah */
+    margin-bottom: 20px; /* Menambahkan margin bawah untuk meninggikan posisi navbar */
+}
+
+
+.navbar-brand {
+    color: white;
+    font-weight: bold;
+}
+
+.navbar-buttons {
+    display: flex; /* Menggunakan flexbox */
+}
+
+.navbar-button {
+    color: white;
+    background-color: transparent;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    position: relative; /* Memungkinkan posisi relatif untuk pseudo-element */
+}
+
+/* Animasi */
+.navbar-button::before {
+    content: ''; /* Membuat pseudo-element untuk animasi */
+    position: absolute; /* Menetapkan posisi absolut */
+    top: 0;
+    left: -100%; /* Memulai dari luar tombol */
+    width: 100%;
+    height: 100%;
+    background-color: #ff0000; /* Warna latar belakang merah */
+    transition: left 0.3s, background-color 0.3s, color 0.3s; /* Animasi transisi untuk geser, perubahan warna latar belakang, dan warna teks */
+    z-index: -1; /* Menempatkan di belakang teks tombol */
+}
+
+.navbar-button:hover::before {
+    left: 100%; /* Menggeser kotak merah ke kanan untuk memenuhi tombol */
+    background-color: #ccc; /* Mengubah warna latar belakang menjadi abu-abu */
+    animation: moveRedBox 0.5s forwards; /* Menggunakan animasi CSS keyframes */
+}
+
+@keyframes moveRedBox {
+    0% {
+        left: -100%; /* Memulai dari luar tombol */
+    }
+    100% {
+        left: 100%; /* Berakhir di sebelah kanan tombol */
+    }
+}
+
+.navbar-button:hover {
+    color: yellow; /* Mengubah warna teks menjadi kuning saat dihover */
+}
+
+
+
+.navbar ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: flex-end; /* Menggeser elemen ke kanan secara horizontal */
+    background-color: #333;
+    padding: 0;
+    margin-right: 20px; /* Tambahkan margin kanan */
+}
+
+.navbar ul li {
+    margin-left: 10px; /* Tambahkan margin kiri */
+}
+
+.navbar ul li:first-child {
+    margin-left: auto; /* Menggeser elemen pertama ke ujung kanan */
+}
+
+.navbar ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+.navbar ul li a:hover:not(.active) {
+    background-color: #ff0000;
+    color: #000;
+    transform: translateX(5px);
+}
+
+.navbar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: #dc3545;
+    transition: left 0.3s, background-color 0.3s, opacity 0.3s;
+    z-index: -1;
+    opacity: 0;
+}
+
+.navbar:hover::before {
+    left: 0;
+    background-color: #000;
+    opacity: 0.5;
+}
+
+.table {
+    width: 90%; /* Atur lebar tabel menjadi 90% dari lebar container */
+    margin: 20px auto; /* Atur margin secara otomatis di atas dan bawah serta auto di sisi kiri dan kanan */
+    border-collapse: collapse;
+}
+
+.table th,
+.table td {
+    padding: 10px;
+    border: 1px solid #ced4da;
+    text-align: center; /* Pusatkan teks pada sel tabel */
+}
+
+.table th {
+    background-color: #f8f9fa;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-danger {
+    background-color: #fff; /* Warna latar belakang menjadi putih */
+    color: black; /* Warna teks menjadi hitam */
+    border: 1px solid black; /* Tambahkan border */
+    position: relative; /* Atur posisi tombol menjadi relatif */
+    overflow: hidden; /* Sembunyikan konten yang meluap dari tombol */
+    transition: color 0.3s; /* Transisi warna teks */
+    z-index: 1; /* Tetapkan z-index agar tombol berada di atas kotak hitam */
+}
+
+.btn-danger::before {
+    content: ''; /* Tambahkan konten pseudo sebelumnya */
+    position: absolute; /* Atur posisi menjadi absolut */
+    top: 0;
+    left: -100%; /* Geser kotak merah ke kiri di luar tombol */
+    width: 100%;
+    height: 100%;
+    background-color: #dc3545; /* Warna latar belakang menjadi merah */
+    transition: left 0.3s, background-color 0.3s, color 0.3s; /* Animasi transisi untuk geser, perubahan warna latar belakang, dan warna teks */
+    z-index: -1; /* Tetapkan z-index agar kotak hitam berada di bawah tombol */
+}
+
+.btn-danger:hover::before {
+    left: 0; /* Geser kotak merah ke kanan untuk memenuhi tombol */
+    background-color: #000; /* Ganti warna latar belakang menjadi hitam */
+}
+
+.btn-danger:hover {
+    color: #fff; /* Ganti warna teks menjadi putih saat dihover */
+}
+
+.team-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.member {
+    margin: 20px;
+    text-align: center;
+}
+
+.member img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid #007bff;
+    object-fit: cover;
+}
+
+.member h4 {
+    margin-top: 10px;
+}
+
+.member p {
+    margin-bottom: 10px;
+}
+
+.button-group {
+    margin-top: 10px; /* Atur jarak di atas tombol grup */
+}
+
+.button-group button {
+    margin-right: 10px; /* Atur jarak antara tombol */
+}
+
+#incomeOutcomePage,
+#aboutUsPage {
+    max-width: 1200px;
+    margin: 0% auto; /* Atur margin di atas dan bawah, dan auto di sisi kiri dan kanan */
+    padding: 0%;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Untuk layar dengan lebar maksimum 768px */
+@media (max-width: 768px) {
+    .container-login {
+      padding: 20px;
+    }
+    
+    .navbar {
+        padding: 15px; /* Mengurangi padding pada navbar */
+    }
+    
+    .button-group button {
+        margin-right: 5px; /* Mengurangi jarak antara tombol di grup tombol */
+    }
+    
+    .member {
+        margin: 10px; /* Mengurangi margin pada anggota tim */
+    }
+    
+    .member img {
+        width: 100px; /* Mengurangi ukuran gambar anggota tim */
+        height: 100px;
+    }
+
+    .container {
+        flex-direction: column; /* Mengubah arah flex menjadi vertikal */
+    }
+
+    .balance-box, .transaction-history-box {
+        font-size: 14px; /* Atur ukuran font untuk keperluan tampilan mobile */
+        width: 800px; /* Mengatur lebar balance box */
+        margin-right: 20px; /* Tambahkan margin kanan untuk memberikan ruang di antara balance box */
+    }
+}
